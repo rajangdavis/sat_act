@@ -16,7 +16,7 @@ section {
 }
 
 #title{
-	font-size:100px;
+	font-size:5vw;
 	line-height: 1
 }
 
@@ -36,20 +36,4 @@ a:visited {
 
 a:hover {
   text-decoration: underline;
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  animation-name: fade-in;
-  animation-duration: 2.5s;
-  animation-fill-mode: both;
 }
