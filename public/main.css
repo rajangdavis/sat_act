@@ -1,0 +1,55 @@
+@import url(http://fonts.googleapis.com/css?family=Overpass+Mono);
+
+body{
+	text-align: left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+section {
+	background: #000;
+	color: #fff;
+	padding: 2em;
+	font-family: "Overpass Mono";
+}
+
+#title{
+	font-size:100px;
+	line-height: 1
+}
+
+#follow {
+  background: none;
+}
+
+.grey {
+  color: #777;
+}
+
+a:link,
+a:visited {
+  color: orange;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fade-in;
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+}
