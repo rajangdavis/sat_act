@@ -1,0 +1,106 @@
+// Borrowed from
+// http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922
+
+//Width and height of map
+var width = screen.width/1.75;
+var height = screen.height/1.5;
+
+// D3 Projection
+var projection = d3.geo.albersUsa()
+	.translate([width/2, height/3])    // translate to center of screen
+	.scale([1000]);          // scale things down so see entire US
+        
+// Define path generator
+var path = d3.geo.path()               // path generator that will convert GeoJSON to SVG paths
+	.projection(projection);  // tell path generator to use albersUsa projection
+
+// const colorRange = ['#004c6d','#6996b3','#c1e7ff'];
+// const colorDomain = [0,50, 100]
+
+// color range
+var color = d3.scale.linear()
+    .domain(colorDomain)
+    .range(colorRange);
+
+//Create SVG element and append map to the SVG
+var svg2 = d3.select("#act-map")
+	.append("svg")
+	.attr("width", width)
+	.attr("height", height)
+	.call(responsivefy);
+        
+// Append Div for tooltip to SVG
+var div2 = d3.select("#act-map")
+    .append("div")   
+    .attr("class", "tooltip")               
+    .style("opacity", 0);
+
+var g2 = svg2.append("g")
+
+// Load in my states data!
+d3.csv("data/act.csv", function(data) {
+
+	// Load GeoJSON data and merge with states data
+	d3.json("data/us-states.json", function(json) {
+
+	// Loop through each state data value in the .csv file
+	for (var i = 0; i < data.length; i++) {
+
+		// Grab State Name
+		var dataState = data[i]["State"];
+
+		// Grab data value 
+		var dataValue = data[i]["Participation"];
+
+		// Find the corresponding state inside the GeoJSON
+		for (var j = 0; j < json.features.length; j++)  {
+			var jsonState = json.features[j].properties.name;
+
+			if (dataState == jsonState) {
+				// Copy the data value into the JSON
+				json.features[j].properties.participation = dataValue; 
+
+				// Stop looking through the JSON
+				break;
+			}
+		}
+	}
+    // Bind the data to the SVG and create one path per GeoJSON feature
+	g2.append("g")
+		.selectAll("path")
+		.data(json.features)
+		.enter()
+		.append("path")
+		.attr("d", path)
+		.style("stroke", "#fff")
+		.style("stroke-width", "1")
+		.style("fill", function(d) {
+			// Get data value
+			var value = d.properties.participation;
+			if (value != undefined){
+				// return value
+				return color(parseInt(value.replace("%","")))
+			}
+
+		})
+
+	g2.append("g")
+		// https://stackoverflow.com/a/28306974/2548452
+		.selectAll("text")
+		.data(json.features)
+		.enter()
+		.append("svg:text")
+		.text( d => d.properties.participation)
+		.attr("x", function(d){
+			return path.centroid(d)[0] - 12;
+		})
+		.attr("y", function(d){
+			return  path.centroid(d)[1];
+		})
+		.attr("font-family", "Overpass Mono")
+		.attr("font-size", "10px")
+		.attr("fill", "#EFF6E0");
+
+	});
+
+});
