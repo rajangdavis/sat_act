@@ -50,12 +50,12 @@ function responsivefy(svg) {
 // http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922
 
 //Width and height of map
-var width = screen.width/1.75;
-var height = screen.height/1.5;
+var width = 1000;
+var height = 1000;
 
 // D3 Projection
 var projection = d3.geo.albersUsa()
-	.translate([width/2, height/3])    // translate to center of screen
+	.translate([530, 230])    // translate to center of screen
 	.scale([1000]);          // scale things down so see entire US
         
 // Define path generator
