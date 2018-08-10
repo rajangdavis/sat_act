@@ -62,7 +62,7 @@ var projection = d3.geo.albersUsa()
 var path = d3.geo.path()               // path generator that will convert GeoJSON to SVG paths
 	.projection(projection);  // tell path generator to use albersUsa projection
 
-const colorRange = ['#004c6d','#6996b3','#c1e7ff'];
+const colorRange = ['#c1e7ff','#6996b3','#004c6d'];
 const colorDomain = [0,50, 100]
 
 // color range
@@ -147,7 +147,7 @@ d3.csv("data/sat.csv", function(data) {
 		})
 		.attr("font-family", "Overpass Mono")
 		.attr("font-size", "10px")
-		.attr("fill", "#EFF6E0");
+		.attr("fill", "black");
 
 	});
 

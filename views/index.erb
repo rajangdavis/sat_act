@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 	<link rel="stylesheet" type="text/css" href="/main.css">
 </head>
 <body>
 	<section class="centered">
 	<br>
-	<h1 class="orange" id="title">Statistical Analysis of SAT and ACT Participation by state</h1>
+	<h1 class="orange" id="title">Patterns of Participation</h1>
+	<h3 class="spaced">Increasing SAT market share through targeted strategies</h3>
 	<br>
-	<h1>by: Rajan Davis</h1>
+	<h1>by Rajan Davis</h1>
 	<div id="pt"></div>
 	</section>
 
 	<section class="centered">
-	<h1>A Brief introduction</h1>
+	<h1 class="orange">Introduction</h1>
+	<br>
+	<h5 class="spaced">
+		Using SAT and ACT participation data and findings from a <a href="https://www.washingtonpost.com/blogs/answer-sheet/post/how-act-overtook-sat-as-the-top-college-entrance-exam/2012/09/24/d56df11c-0674-11e2-afff-d6c7f20a83bf_blog.html?utm_term=.103ba02bb92d">Washington Post article</a>, we can identify strategies for increasing SAT participation through tried and true practices.
+	</h5>
+	</section>
+
+	<section class="centered">
+	<br>
+	<h1 class="orange">Methodology:</h1>
+	<ul>
+		<li>Reviewed ACT and SAT data sets for indicators of success</li>
+		<li>Reviewed <a href="https://www.hanoverresearch.com/media/Best-Practices-to-Increase-SAT-Participation-1.pdf">current available research</a> on how to improve SAT participation</li>
+		<li>Reviewed articles regarding trends in SAT and ACT participation</li>
+	</ul>
 	</section>
 
 	<section class="centered">
 	<br>
 	<h1 class="orange">Finding 1:</h1>
-	<h2 class="spaced">The majority of States with at least a 50% participation rate for the SAT's are located on the coasts</h2>
+	<h2 class="spaced">The majority of states with at least a 50% participation rate for the SAT's are located in the East Coast.</h2>
 	</section>
 
 	<section class="centered">
@@ -28,42 +43,25 @@
 	</section>
 
 	<section class="centered">
-	<h1>Finding 2</h1>
-	<br>
+	<h1 class="orange">Finding 2</h1>
+	<h2 class="spaced">The majority of states with at least a 50% participation rate for the ACT's are located in the center of the United States.</h2>
 	</section>
 
 	<section class="centered">
 	<div id="act-map"></div>
 	</section>
-
+	
 	<section class="centered">
-	<h1>Finding 3</h1>
+	<h1 class="orange">Why might this be?</h1>
 	<br>
-	</section>
-
-	<section class="centered">
-	<h1>SLIDE 3</h1>
-	<br>
-	</section>
-
-	<section class="centered">
-	<h1>Finding 4</h1>
-	<br>
+	A Recent article from the Washington Post has identified that the ACT has "marketed its exam to many states as a replacement for ... high school exit exams".<br><br> 
+	As a result, nine states had 100% participation rates for the ACT in 2014.
 	</section>
 
 	<section class="centered">
 	<h1>SLIDE 4</h1>
 	<br>
-	</section>
-
-	<section class="centered">
-	<h1>Finding 5</h1>
-	<br>
-	</section>
-
-	<section class="centered">
-	<h1>SLIDE 5</h1>
-	<br>
+	Maine SAT versus ACT
 	</section>
 
 	<section class="centered">
@@ -89,6 +87,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/d3-legend/1.1.0/d3-legend.js"></script>
 <script src="data-viz.js"></script>
 <script src="data-viz2.js"></script>
+<script src="data-viz3.js"></script>
 <script>
 	// Creates the powerpoint presentation
 	var mystack = stack();

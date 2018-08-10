@@ -1,27 +1,3 @@
-// Borrowed from
-// http://bl.ocks.org/michellechandra/0b2ce4923dc9b5809922
-
-//Width and height of map
-var width = screen.width/1.75;
-var height = screen.height/1.5;
-
-// D3 Projection
-var projection = d3.geo.albersUsa()
-	.translate([width/2, height/3])    // translate to center of screen
-	.scale([1000]);          // scale things down so see entire US
-        
-// Define path generator
-var path = d3.geo.path()               // path generator that will convert GeoJSON to SVG paths
-	.projection(projection);  // tell path generator to use albersUsa projection
-
-// const colorRange = ['#004c6d','#6996b3','#c1e7ff'];
-// const colorDomain = [0,50, 100]
-
-// color range
-var color = d3.scale.linear()
-    .domain(colorDomain)
-    .range(colorRange);
-
 //Create SVG element and append map to the SVG
 var svg2 = d3.select("#act-map")
 	.append("svg")
